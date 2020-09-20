@@ -5,6 +5,8 @@ const helmet = require("helmet");
 
 const APIRouter = require("../routes/router");
 
+const keepAlive = require("../utils/keepAlive");
+
 const initServer = (port) => {
   const app = express();
 
@@ -23,6 +25,8 @@ const initServer = (port) => {
   });
 
   app.use("/api/v1", APIRouter);
+
+  keepAlive.wake();
 
   app.listen(port, () => {
     console.log("Inició el servidor correctamente.");
