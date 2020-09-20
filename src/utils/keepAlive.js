@@ -7,7 +7,7 @@ const wake = () => {
   const cronJob = new cron.CronJob("0 */25 * * * *", async () => {
     try {
       const res = await axios(url);
-      console.log(`response-ok: ${res.ok}, status: ${res.status}`);
+      console.log(`Response-ok: ${res.ok}, Status: ${res.status}`);
     } catch (err) {
       console.error(err);
     }
